@@ -9,18 +9,23 @@ l'1 de gener de 1970 (GTM) i queda a l'espera de rebre més connexions.
 ###TUTORIAL D'EXECUCIÓ
 
 Accedir al directori amb el contignut necesari per crear el docker:
-$ cd docker/nom_servei/protocol
+<pre>$ cd docker/nom_servei/protocol</pre>
 
 Executar l'script de creació de la imatge i el container docker:
-$ ./builder.sh
+
+<pre>$ ./builder.sh</pre>
 
 Comprovar els dockers instal·lats:
-$ docker ps -a	
+
+<pre>$ docker ps -a</pre>	
 
 Arrencar el container:
-$ docker start nom_cnt
+
+<pre>$ docker start nom_cnt</pre>
 
 Testejar el seu funcionament:
+
 (nota: comprovar l'execució desde diferents clients a la vegada)
-$ ncat -u "ip" 37
+
+<pre>$ ncat -u "ip" 37</pre>
 
