@@ -6,6 +6,8 @@ RUN dnf -y install python; dnf clean all
 
 COPY discard_tcp.py discard_tcp.py
 
+RUN chmod +x discard_tcp.py
+
 ENTRYPOINT ["./discard_tcp.py"]
 
 EXPOSE 9

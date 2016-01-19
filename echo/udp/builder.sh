@@ -8,9 +8,6 @@
 IMAGE="echo_udp_img"
 CONTAINER="echo_udp_cnt"
 
-#forma rapida de trobar la ip que va canviant en el meu portatil
-IP=$(ifconfig | grep -A 1 'wlp3s0' | tail -1 | cut -d' ' -f 10)
-
 
 
 #### CREACIO DE LA IMATGE BASE ####
@@ -18,7 +15,6 @@ IP=$(ifconfig | grep -A 1 'wlp3s0' | tail -1 | cut -d' ' -f 10)
 #--rm: 		remove intermediate containers after a successful build
 #-t: 		repository name (and optionally a tag) to be applied to the 
 #	 		resulting image in case of success
-
 
 docker build --rm -t $IMAGE .
 		
@@ -36,19 +32,15 @@ docker build --rm -t $IMAGE .
 #abans de crear un de nou cal asegurar-se que no existeix.
 #si existeix s'esborra
 
-docker stop $CONTAINER
-docker rm $CONTAINER
+docker stop $CONTAINER &>/dev/null
+docker rm $CONTAINER &>/dev/null
 
 
 #creacio del container
 
-docker create --name $CONTAINER -i -t -p $IP:7:7/udp $IMAGE
-		
-		
-#NOTA
-#per executar el echo server del docker: 
-#docker start nom_CONTAINER
-#ncat -u $IP 7 (variable ja guardada a l'entorn (nomes al portatil))
+docker create --name $CONTAINER -i -t -p 7:7/udp $IMAGE
 		
 
+
 exit 0
+

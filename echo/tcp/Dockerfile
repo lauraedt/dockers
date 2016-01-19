@@ -6,6 +6,8 @@ RUN dnf -y install python; dnf clean all
 
 COPY echo_tcp.py echo_tcp.py
 
+RUN chmod +x echo_tcp.py
+
 ENTRYPOINT ["./echo_tcp.py"]
 
 EXPOSE 7

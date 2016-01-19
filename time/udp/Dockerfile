@@ -6,6 +6,8 @@ RUN dnf -y install python; dnf clean all
 
 COPY time_udp.py time_udp.py
 
+RUN chmod +x time_udp.py
+
 ENTRYPOINT ["./time_udp.py"]
 
 EXPOSE 37
