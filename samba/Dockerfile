@@ -20,5 +20,5 @@ ADD README.md /var/lib/samba/shares/public/README.md
 RUN useradd laura; echo -e "laura\nlaura" | tee - | smbpasswd -s -a laura
 
 # creacio d'un punt de muntatge del contenidor en el host
-VOLUME /var/tmp/docker/shared
+VOLUME /docker/shared
 

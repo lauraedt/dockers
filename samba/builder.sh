@@ -28,11 +28,12 @@ CONTAINER="nmbd_cnt"
 docker stop $CONTAINER &>/dev/null
 docker rm $CONTAINER &>/dev/null
 
-docker create 								\
-				--name $CONTAINER 			\
-				--expose 137-139 			\
-				--publish 137-139:137-139 	\
-				--entrypoint nmbd 			\
+docker create 										\
+				--name $CONTAINER 					\
+				--expose 137-139 					\
+				--publish 137-139:137-139 			\
+				--volume /docker:/docker/shared		\
+				--entrypoint nmbd 					\
 				$IMAGE -F
 				
 				
@@ -43,11 +44,12 @@ CONTAINER="smbd_cnt"
 docker stop $CONTAINER &>/dev/null
 docker rm $CONTAINER &>/dev/null
 
-docker create 								\
-				--name $CONTAINER 			\
-				--expose 445 				\
-				--publish 445:445 			\
-				--entrypoint smbd 			\
+docker create 										\
+				--name $CONTAINER 					\
+				--expose 445 						\
+				--publish 445:445 					\
+				--volume /docker:/docker/shared		\
+				--entrypoint smbd 					\
 				$IMAGE -F
 		
 		
