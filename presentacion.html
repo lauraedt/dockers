@@ -22,20 +22,30 @@ Laura Ran
   </p>
   <p class="date">09 de Marzo, 2016</p>
 </div>
-<div id="objetivos-del-proyecto" class="slide section level1">
-<h1>Objetivos del proyecto</h1>
+<div id="qué-quiero-explicar" class="slide section level1">
+<h1>¿Qué quiero explicar?</h1>
+<ul class="incremental">
+<li><p>¿Qué es Docker?</p></li>
+<li><p>¿Qué diferencias existen entre Docker y los sistemas de virtualización?</p></li>
+<li><p>¿Para qué sirve?</p></li>
+<li><p>¿Cómo funciona Docker?</p></li>
+<li><p>¿Cómo se construye un contenedor?</p></li>
+<li><p>¿Qué puedo hacer con los contenedores?</p></li>
+<li><p>¡¡Necesito saber más!!</p></li>
+</ul>
+<p>Visita: <a href="https://github.com/lauraedt/dockers.git" class="uri">https://github.com/lauraedt/dockers.git</a></p>
 </div>
 <div id="qué-es-docker" class="slide section level1">
 <h1>¿Qué es Docker?</h1>
 <p><strong>&quot;<a href="https://www.docker.com">Docker</a> provides an integrated technology suite that enables development and IT operations teams to build, ship, and run distributed applications anywhere&quot;</strong></p>
-<p><em>&quot;Docker proporciona un conjunto integrado de tecnologías que permite a los equipos de desarrollo y a los operadores de sistemas construir, enviar y ejecutar aplicaciones distribuidas en cualquier lugar&quot;</em></p>
+<p><em>&quot;Docker proporciona un conjunto integrado de tecnologías que permite a los equipos de desarrollo y a los administradores de sistemas construir, enviar y ejecutar aplicaciones distribuidas en cualquier lugar&quot;</em></p>
 <div class="figure">
 <img src="http://www.oniricosistemas.com.ar/blog/wp-content/uploads/2014/11/docker.png" />
 
 </div>
 </div>
-<div id="contenedores-docker-vs.-virtualización" class="slide section level1">
-<h1>Contenedores Docker vs. Virtualización</h1>
+<div id="qué-diferencias-existen-entre-docker-y-los-sistemas-de-virtualización" class="slide section level1">
+<h1>¿Qué diferencias existen entre Docker y los sistemas de virtualización?</h1>
 <p><strong>Las máquinas virtuales...</strong></p>
 <ul class="incremental">
 <li>Necesitan un sistema operativo virtualizado</li>
@@ -49,6 +59,41 @@ Laura Ran
 <li>Los procesos són más ligeros y se aprovecha mejor el hardware</li>
 <li>Solo almacena en el disco aquello que lo diferencia del sistema anfitrión</li>
 </ul>
+</div>
+<div id="para-qué-sirve" class="slide section level1">
+<h1>¿Para qué sirve?</h1>
+<ul class="incremental">
+<li>Contenedores ligeros de fácil almacenaje, transporte y ejecución</li>
+<li>Despliegue de multitud de contenedores en un mismo equipo anfitrión</li>
+<li>Puesta en marcha de entornos de pruebas en pocos segundos</li>
+<li>Facilidad de desarrollo de aplicaciones independientemente de dónde se ejecuten</li>
+</ul>
+</div>
+<div id="cómo-funciona-docker" class="slide section level1">
+<h1>¿Cómo funciona Docker?</h1>
+<ul class="incremental">
+<li>Se ejecutan sobre el kernel del equipo anfitrión</li>
+<li>Utilizan una imagen base</li>
+<li>Sobre ella se instalan imágenes de las aplicaciones que se necesiten</li>
+<li>El contenedor resultante es accesible y puede ser modificado</li>
+<li>Se pueden ejecutar a la vez un gran número de contenedores a la vez</li>
+<li>Los contenedores pueden interctuar entre ellos</li>
+</ul>
+</div>
+<div id="cómo-funciona-docker-1" class="slide section level1">
+<h1>¿Cómo funciona Docker?</h1>
+<p>Algunos aspectos a tener en cuenta:</p>
+<p><strong>Diferencias entre contenedores e imágenes:</strong> Las imágenes en Docker se pueden entender como un componente estático, es un sistema operativo base o un conjunto de aplicaciones. Un contenedor es la ejecución de una imagen.</p>
+<p><strong>Un contenedor se ejecuta, se utiliza y muere:</strong> Problema con la persistencia de datos</p>
+<p><strong>Utilizan una red propia:</strong> se ejecutan y comunican dentro de su propia red 172.17.0.1/16</p>
+</div>
+<div id="cómo-se-contruye-un-contenedor" class="slide section level1">
+<h1>¿Cómo se contruye un contenedor?</h1>
+<ul class="incremental">
+<li><strong>Dockerfiles:</strong> Archivos que definen las instrucciones a seguir por Docker de forma secuencial para construir una imagen personalizada</li>
+<li><strong>Scripts</strong> de creación de la imagen y del contenedor</li>
+</ul>
+<p>Ejemplo: <a href="https://github.com/lauraedt/dockers/tree/master/samba" class="uri">https://github.com/lauraedt/dockers/tree/master/samba</a></p>
 </div>
 </body>
 </html>
