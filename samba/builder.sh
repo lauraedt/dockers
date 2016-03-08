@@ -48,7 +48,7 @@ docker create 										\
 				--name $CONTAINER 					\
 				--expose 445 						\
 				--publish 445:445 					\
-				--volume /docker:/docker/shared		\
+				--volumes-from nmbd_cnt				\
 				--entrypoint smbd 					\
 				$IMAGE -F
 		

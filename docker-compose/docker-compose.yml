@@ -6,7 +6,7 @@ redisdb:
 postgresqldb:
   image: busybox
   volumes:
-    - /var/lib/postgresql/data
+    - /docker/postgresdb:/var/lib/postgresql/data
 
 redis:
   image: redis:3
