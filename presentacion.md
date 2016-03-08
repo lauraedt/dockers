@@ -12,9 +12,7 @@
 
 - ¿Cómo funciona Docker?
 
-- ¿Cómo se construye un contenedor?
-
-- ¿Qué puedo hacer con los contenedores?
+- ¿Cómo se construye un contenedor y cómo lo administro?
 
 - ¡¡Necesito saber más!! 
 
@@ -73,12 +71,29 @@ Algunos aspectos a tener en cuenta:
 **Utilizan una red propia:** se ejecutan y comunican dentro de su propia red 172.17.0.1/16
 
 
-# ¿Cómo se contruye un contenedor?
+# ¿Cómo se contruye un contenedor y cómo lo administro?
 
-Ejemplo: <https://github.com/lauraedt/dockers/tree/master/samba>
+*Ejemplos: *
+
+**Samba:** <https://github.com/lauraedt/dockers/tree/master/samba>
+
+¿Cómo se crean las imágenes y contenedores Docker? ¿Qué información se puede extraer? ¿Es posible modificar un contenedor y guardar los cambios?
+
+**Redis:** <https://github.com/lauraedt/dockers/tree/master/redis>
+
+¿Cómo enlazar contenedores? ¿La información de la base de datos es persistente?
 
 - **Dockerfiles:** Archivos que definen las instrucciones a seguir por Docker de forma secuencial para construir una imagen personalizada
 - **Scripts** de creación de la imagen y del contenedor
+
+
+# Más información y ejemplos en:
+
+<https://github.com/lauraedt/dockers.git>
+
+¿Preguntas?
+
+
 
 
 

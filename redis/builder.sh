@@ -35,7 +35,6 @@ docker start $CONTAINER
 
 docker create 														\
 				--name $CONTAINER_CLIE								\
-				--publish 6379:6379									\
 				--link $CONTAINER:redis								\
 				$IMAGE 
 				
