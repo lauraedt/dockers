@@ -1,19 +1,49 @@
-# INTRODUCCIÓN AL POSTGRES #
-PostgreSQL es un sistema de gestión de bases de datos objeto-relacional, distribuido bajo licencia BSD y con su código fuente disponible libremente. Es el sistema de gestión de bases de datos de código abierto más potente del mercado y en sus últimas versiones no tiene nada que envidiarle a otras bases de datos comerciales.
+#POSTGRES
 
-PostgreSQL utiliza un modelo cliente/servidor y usa multiprocesos en vez de multihilos para garantizar la estabilidad del sistema. Un fallo en uno de los procesos no afectará el resto y el sistema continuará funcionando. 
+Postgresql és un sistema de gestió de bases de dades relacional de codi obert dels més potents del mercat.
 
-El puerto de escucha es el 5432, la conexión es TCP/IP y la comunicación se realiza mediante texto plano.
+Utilitza un model client/servidor i multiprocessos per a garantitzar l'estabilitat del sistema. Si falla un dels processos no afectarà als altres i continuarà funcionant.
 
-## INSTALACIÓN Y TESTEO DE SERVIDOR POSTGRES ##
-Hacer los siguientes pasos con tu usuario desde el directorio docker/postgres.
+Escolta pel port 5432, la conexió és de tipus TCP/IP i la comunicació es realitza en text pla. 
 
-1. Ejecutar el script build_docker.sh para crear la imagen y el container. Sigue los pasos. <pre>$ ./build_docker.sh</pre>
 
-2. Arrancar el container.
+###COM FUNCIONA?
+El Dockerfile de postgres:  
 
-3. Consultar estado del container: <pre>$ docker ps</pre>
+- sobre la base de fedora 21 instala els paquets necessaris.
 
-4. Para testear que todo funciona correctamente:  
-Nos conectamos a la base de datos 'dockerdb' con el username 'laura' que tiene como password 'laura' al host propio. 
+- es copien els arxius de configuració necessaris així com un script per engegar el servei i un altre per crear els usuaris i la base de dades
+
+- s'executen els scripts
+
+- s'exposa el port necessari i es crea el volum de dades
+
+- l'imatge executarà l'script que arrenca postgres (si no s'indica el contrari posteriorment) 
+
+L'script *builder.sh*:
+
+- crea un contenidor 
+  
+- s'enllacen el port del host amb el del contenidor
+
+- s'enllaça el volum de dades del contenidor amb un directori del propi host per facilitar la persistencia de dades.
+
+
+###TUTORIAL D'EXECUCIÓ
+Accedir al directori amb el contignut necesari per crear el docker:
+<pre>$ cd docker/nom_servei</pre>
+
+Executar l'script de creació de la imatge i el container docker:
+
+<pre>$ ./builder.sh</pre>
+
+Arrencar el container
+
+<pre>$ docker start nom_cnt</pre>
+
+Testejar el seu funcionament:
+Cal conactar-se a la base de dades 'dockerdb' amb el username 'laura' i password 'laura'.
+
 <pre>$ psql -h localhost -U laura -d dockerdb</pre>
+
+NOTA: Per diferents problemes a l'hora de d'executar el servei de postgres (per no poder usar systemctl) s'ha utilitzat com a referència un Dockerfile extret de dockerhub on es soluciona el problema.
